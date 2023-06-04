@@ -6,5 +6,5 @@ version = "1.0.0"
 [deps]
 SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 
-[compate]
+[compat]
 julia = "1.2"
