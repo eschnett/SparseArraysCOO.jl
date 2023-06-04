@@ -1,5 +1,5 @@
-# openPMD.jl
+# SparseArraysCOO.jl
 
 ```@autodocs
-Modules = [openPMD]
+Modules = [SparseArraysCOO]
 ```
