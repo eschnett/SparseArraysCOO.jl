@@ -131,10 +131,9 @@ end
     for iter in 1:100
         n = rand(1:10)
 
-        # We need to convert to `SparseVector{BigRat}` since the element type might otherwise be `Any`
-        x₀ = SparseVector{BigRat}(BigRat.(sprand(Int8, n, rand())) ./ rand(1:10, n))
-        y₀ = SparseVector{BigRat}(BigRat.(sprand(Int8, n, rand())) ./ rand(1:10, n))
-        z₀ = SparseVector{BigRat}(BigRat.(sprand(Int8, n, rand())) ./ rand(1:10, n))
+        x₀ = BigRat.(sprand(Int8, n, rand())) / 10
+        y₀ = BigRat.(sprand(Int8, n, rand())) / 10
+        z₀ = BigRat.(sprand(Int8, n, rand())) / 10
 
         x₀::SparseVector{BigRat,Int}
         y₀::SparseVector{BigRat,Int}
@@ -178,10 +177,9 @@ end
         m = rand(1:10)
         n = rand(1:10)
 
-        # We need to convert to `SparseMatrix{BigRat}` since the element type might otherwise be `Any`y
-        A₀ = SparseMatrixCSC{BigRat}(BigRat.(sprand(Int8, m, n, rand())) ./ rand(1:10, m, n))
-        B₀ = SparseMatrixCSC{BigRat}(BigRat.(sprand(Int8, m, n, rand())) ./ rand(1:10, m, n))
-        C₀ = SparseMatrixCSC{BigRat}(BigRat.(sprand(Int8, m, n, rand())) ./ rand(1:10, m, n))
+        A₀ = BigRat.(sprand(Int8, m, n, rand())) / 10
+        B₀ = BigRat.(sprand(Int8, m, n, rand())) / 10
+        C₀ = BigRat.(sprand(Int8, m, n, rand())) / 10
 
         A₀::SparseMatrixCSC{BigRat,Int}
         B₀::SparseMatrixCSC{BigRat,Int}
