@@ -173,7 +173,7 @@ end
 end
 
 @testset "Sparse matrix operations" begin
-    for iter in 1:1
+    for iter in 1:100
         m = rand(1:10)
         n = rand(1:10)
 
