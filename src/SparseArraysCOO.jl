@@ -53,11 +53,20 @@ function Base.setindex!(x::SparseVectorCOO, v, i::Integer)
 end
 
 """
-    SparseArrays.sparse(x::SparseVectorCOO)::SparseVector
+    SparseArrays.sparse(x::SparseVectorCOO[, combine])::SparseVector
 
-Convert to the standard sparse vector representation.
+Convert to the standard sparse vector representation. Identical to @ref[`sparsevec`].
 """
-SparseArrays.sparse(x::SparseVectorCOO) = sparsevec(x.I, x.V, x.n)
+SparseArrays.sparse(x::SparseVectorCOO) = sparsevec(x)
+SparseArrays.sparse(x::SparseVectorCOO, combine) = sparsevec(x, combine)
+
+"""
+    SparseArrays.sparsevec(x::SparseVectorCOO[, combine])::SparseVector
+
+Convert to the standard sparse vector representation. Identical to @ref[`sparse`].
+"""
+SparseArrays.sparsevec(x::SparseVectorCOO) = sparsevec(x.I, x.V, x.n)
+SparseArrays.sparsevec(x::SparseVectorCOO, combine) = sparsevec(x.I, x.V, x.n, combine)
 
 """
     Vector(x::SparseVectorCOO)::Vector
@@ -156,11 +165,12 @@ function Base.setindex!(A::SparseMatrixCOO, v, i::Integer, j::Integer)
 end
 
 """
-    SparseArrays.sparse(A::SparseMatrixCOO)::SparseMatrixCSC
+    SparseArrays.sparse(A::SparseMatrixCOO[, combine})::SparseMatrixCSC
 
 Convert to the standard sparse matrix representation.
 """
 SparseArrays.sparse(A::SparseMatrixCOO) = sparse(A.I, A.J, A.V, A.m, A.n)
+SparseArrays.sparse(A::SparseMatrixCOO, combine) = sparse(A.I, A.J, A.V, A.m, A.n, combine)
 
 """
     Matrix(A::SparseMatrixCOO)::Matrix
