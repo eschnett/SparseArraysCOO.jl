@@ -27,6 +27,8 @@ const BigRat = Rational{BigInt}
         end
 
         x = sparse(x)
+        x′ = sparsevec(x)
+        @test x′ == x
 
         @test eltype(x) ≡ BigRat
         @test size(x) == (n,)
